@@ -1,0 +1,12 @@
+
+{
+  "id": "com.myiptv.player",
+  "version": "1.0.0",
+  "vendor": "My IPTV",
+  "type": "web",
+  "main": "index.html",
+  "title": "My IPTV",
+  "icon": "icon.png",
+  "largeIcon": "largeIcon.png",
+  "resolution": "1920x1080"
+}
