@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>My IPTV</title>
+
+<style>
+
+*{box-sizing:border-box}
+
+body{
+
+ margin:0;background:#101522;color:#fff;
+
+ font-family:Arial,sans-serif
+
+}
+
+header{
+
+ padding:25px 5%;background:#19243a;
+
+ display:flex;align-items:center;justify-content:space-between
+
+}
+
+.logo{font-size:30px;font-weight:bold;color:#48c5ff}
+
+main{padding:35px 5%}
+
+h2{color:#48c5ff}
+
+.tabs{display:flex;gap:12px;margin:25px 0}
+
+button{
+
+ cursor:pointer;border:0;border-radius:8px;
+
+ padding:14px 24px;font-size:18px;
+
+ background:#26364f;color:white
+
+}
+
+button:focus,input:focus{
+
+ outline:3px solid #48c5ff
+
+}
+
+button.active{background:#087fbd}
+
+.panel{
+
+ background:#19243a;padding:25px;
+
+ border-radius:14px;max-width:700px
+
+}
+
+input{
+
+ width:100%;padding:16px;margin:10px 0;
+
+ border:1px solid #52617a;border-radius:8px;
+
+ background:#101522;color:white;font-size:17px
+
+}
+
+.connect{background:#087fbd;width:100%;margin-top:15px}
+
+.hidden{display:none}
+
+.note{color:#aab8cb;line-height:1.8}
+
+footer{padding:25px;color:#8492a8;text-align:center}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+ <div class="logo">MY IPTV</div>
+
+ <div>مشغل التلفزيون الذكي</div>
+
+</header>
+
+<main>
+
+ <h2>مرحباً بك في My IPTV</h2>
+
+ <p class="note">مشغلك الخاص لمشاهدة قنواتك المفضلة</p>
+
+ <div class="tabs">
+
+  <button id="m3ubtn" class="active"
+
+   onclick="showTab('m3u')">M3U</button>
+
+  <button id="xtbtn"
+
+   onclick="showTab('xt')">Xtream Codes</button>
+
+ </div>
+
+ <section class="panel" id="m3u">
+
+  <h3>إضافة قائمة M3U</h3>
+
+  <input id="m3ulink" type="url"
+
+   placeholder="أدخل رابط قائمة القنوات">
+
+  <button class="connect"
+
+   onclick="connectM3U()">اتصال</button>
+
+ </section>
+
+ <section class="panel hidden" id="xt">
+
+  <h3>إضافة اشتراك Xtream Codes</h3>
+
+  <input id="server" placeholder="رابط السيرفر">
+
+  <input id="username" placeholder="اسم المستخدم">
+
+  <input id="password" type="password"
+
+   placeholder="كلمة المرور">
+
+  <button class="connect"
+
+   onclick="connectXtream()">اتصال</button>
+
+ </section>
+
+ <p id="status" class="note"></p>
+
+ <section class="panel">
+
+  <h3>مميزات المشغل</h3>
+
+  <p>✓ دعم قوائم M3U</p>
+
+  <p>✓ دعم Xtream Codes</p>
+
+  <p>✓ قنوات SD وHD و4K حسب توافق البث</p>
+
+  <p>✓ المفضلة والبحث</p>
+
+  <p>✓ واجهة مناسبة لريموت LG</p>
+
+ </section>
+
+</main>
+
+<footer>MY IPTV PLAYER</footer>
+
+<script>
+
+function showTab(tab){
+
+ document.getElementById('m3u').classList.toggle('hidden',tab!=='m3u');
+
+ document.getElementById('xt').classList.toggle('hidden',tab!=='xt');
+
+ document.getElementById('m3ubtn').classList.toggle('active',tab==='m3u');
+
+ document.getElementById('xtbtn').classList.toggle('active',tab==='xt');
+
+ document.getElementById('status').textContent='';
+
+}
+
+function connectM3U(){
+
+ const link=document.getElementById('m3ulink').value.trim();
+
+ document.getElementById('status').textContent=
+
+ link?'تم إدخال رابط القائمة. سيتم تفعيل محرك التشغيل في المرحلة التالية.':
+
+ 'يرجى إدخال رابط M3U';
+
+}
+
+function connectXtream(){
+
+ const s=document.getElementById('server').value.trim();
+
+ const u=document.getElementById('username').value.trim();
+
+ const p=document.getElementById('password').value;
+
+ document.getElementById('status').textContent=
+
+ s&&u&&p?'تم إدخال بيانات الاشتراك. سيتم تفعيل الاتصال في المرحلة التالية.':
+
+ 'يرجى إكمال بيانات الاشتراك';
+
+}
+
+</script>
+
+</body>
+
+</html>
